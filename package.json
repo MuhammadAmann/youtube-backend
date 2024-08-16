@@ -1,0 +1,15 @@
+{
+  "name": "youtube-backend",
+  "version": "1.0.0",
+  "description": "A backend for youtue ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JavaScript",
+    "NodeJs\\"
+  ],
+  "author": "",
+  "license": "ISC"
+}
