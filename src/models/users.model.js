@@ -36,7 +36,7 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required"],
     },
-    refreshTokken: {
+    refreshToken: {
       type: String,
       default: null,
     },
@@ -52,9 +52,9 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.pre("save", function async(next) {
+userSchema.pre("save", async function (next) {
   if (this.isModified("password")) {
-    this.password = bcrypt.hash(this.password, 8);
+    this.password = await bcrypt.hash(this.password, 8);
     next();
   } else {
     next();
@@ -80,7 +80,7 @@ userSchema.methods.generateAccessTokken = function () {
   );
 };
 
-userSchema.methods.generateRefreshTokken = function () {
+userSchema.methods.generateRefreshToken = function () {
   return jwt.sign(
     {
       _ID: this._id,
