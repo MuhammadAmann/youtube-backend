@@ -4,6 +4,7 @@ import {
   logoutUser,
   refreshToken,
   registerUser,
+  updateAcountDetails,
 } from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
@@ -27,6 +28,7 @@ router.route("/user/register").post(
 router.route("/user/login").post(loginUser);
 router.route("/user/logout").post(verifyJWT, logoutUser);
 router.route("/user/refresh-token").post(refreshToken);
+router.route("/test").post(verifyJWT, updateAcountDetails);
 // router.route("/user/logout").post((req, res) => {
 //   // Logic for logout
 //   console.log("logged out");
